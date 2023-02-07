@@ -1,6 +1,6 @@
 'use strict';
 
-// how many rounds of voting 
+// how many rounds of voting
 
 let vote = 0;
 let maxVote = 25;
@@ -45,14 +45,49 @@ let wineGlass = new Item('wine-glass', 'img/wine-glass.jpg');
 // all product in an array
 let list = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, waterCan, wineGlass];
 
+// setup a random number array for unique number use
+let rngNoAr = [];
+
+
 //Random no
 function rng() {
   return Math.floor(Math.random() * list.length);
 }
 
+// new render img function where the next rotation won't have previous imgs
 
 
 function renderImg() {
+  while (rngNoAr.length < 6) {
+    let randomNo = rng();
+    if (!rngNoAr.includes(randomNo)) {
+      rngNoAr.push(randomNo);
+      console.log(`after check ${rngNoAr}`);
+    }
+  }
+  let no1 = rngNoAr.shift();
+  console.log(`take out no1 ${rngNoAr}`);
+  let no2 = rngNoAr.shift();
+  console.log(`take out no2 ${rngNoAr}`);
+  let no3 = rngNoAr.shift();
+  console.log(`take out no3 ${rngNoAr}`);
+  image1.src = list[no1].src;
+  image2.src = list[no2].src;
+  image3.src = list[no3].src;
+  image1.alt = list[no1].name;
+  image2.alt = list[no2].name;
+  image3.alt = list[no3].name;
+  list[no1].view++;
+  list[no2].view++;
+  list[no3].view++;
+}
+
+renderImg();
+
+// old render img function where the next rotation can be repeated
+
+/*
+function renderImg1() {
 
   let img1 = rng();
   let img2 = rng();
@@ -74,10 +109,11 @@ function renderImg() {
   list[img3].view++;
 
 }
-renderImg();
+
+*/
+
+
 // add event listener
-
-
 
 let img = document.getElementById('img');
 
@@ -89,14 +125,14 @@ let resultUl = document.getElementById('resultUl');
 let mouseClick = function (event) {
   // console.log(event.target.alt);
   let clickName = event.target.alt;
-  for (let i =0; i <list.length; i++){
-    if (clickName === list[i].name){
+  for (let i = 0; i < list.length; i++) {
+    if (clickName === list[i].name) {
       list[i].like++;
       vote++;
       console.log(list[i].like);
     }
   }
-  if (vote<maxVote){
+  if (vote < maxVote) {
     renderImg();
   } else {
     img.removeEventListener('click', mouseClick);
@@ -105,21 +141,72 @@ let mouseClick = function (event) {
     viewResult.addEventListener('click', render);
     renderImg();
   }
-  
+
 };
 
 img.addEventListener('click', mouseClick);
 
 // render result
-let render = function(){
-  for (let j=0; j <list.length; j++){
+let render = function () {
+  for (let j = 0; j < list.length; j++) {
     let newList = document.createElement('li');
     newList.textContent = `${list[j].name} has ${list[j].like} votes, and was seen ${list[j].view} times.`;
     //banana had 3 votes, and was seen 5 times.
     resultUl.appendChild(newList);
   }
   viewResult.removeEventListener('click', render);
+  finalChart();
 }
 
 let viewResult = document.getElementById('view');
 
+// chart
+
+let finalChart = function () {
+
+
+
+  let listName = [];
+  let listView = [];
+  let listLike = [];
+
+  for (let l = 0; l < list.length; l++) {
+    listName.push(list[l].name);
+    console.log(listName);
+    listView.push(list[l].view);
+    listLike.push(list[l].like);
+  }
+
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: listName,
+      datasets: [{
+        label: '# of Views',
+        data: listView,
+        borderWidth: 1
+      },
+      {
+        label: '# of Likes',
+        data: listLike,
+        borderWidth: 1
+      }]
+    },
+
+
+    options: {
+      indexAxis: 'y',
+      // backgroundColor:['rgba(118, 208, 113, 0.54)','rgba(219, 178, 73, 0.54)','rgba(214, 73, 219, 0.54)'],
+      barThickness: '10',
+      borderRadius: '10',
+      borderWidth: 2,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}

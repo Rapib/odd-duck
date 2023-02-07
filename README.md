@@ -25,7 +25,8 @@ The marketing team is not only interested in the total number of clicks, but als
 
 Lab11
 ![lab11](light11.png)
-
+Lab12
+![lab11](light12.png)
 ### Reflections and Comments
 
 * Consider including the answers to your daily journal and submission questions here

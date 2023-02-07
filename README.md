@@ -23,7 +23,8 @@ The marketing team is not only interested in the total number of clicks, but als
 
 ### Lighthouse Accessibility Report Score
 
-* Provide a screenshot of your score after running a Lighthouse Accessibility report.
+Lab11
+![lab11](light11.png)
 
 ### Reflections and Comments
 

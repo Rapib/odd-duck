@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 // how many rounds of voting
 
 let vote = 0;
@@ -12,13 +14,20 @@ let image3 = document.querySelector('#img img:nth-child(3)');
 
 
 //constructor function for item
-function Item(name, src) {
+// view, like are optional and default, doeesnt need an input
+function Item(name, src, view = 0, like = 0) {
   this.name = name;
   this.src = src;
   // this.src = `img/${name}.jpg`;
-  this.view = 0;
-  this.like = 0;
+  this.view = view;
+  this.like = like;
 }
+
+// testing adding prototype
+// Item.prototype.getName = function(){
+//   console.log('hi');
+// }
+
 
 //all items
 
@@ -44,6 +53,10 @@ let wineGlass = new Item('wine-glass', 'img/wine-glass.jpg');
 
 // all product in an array
 let list = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, sweep, tauntaun, unicorn, waterCan, wineGlass];
+
+// needs to be below the list, so it exist
+pageLoad();
+
 
 // setup a random number array for unique number use
 let rngNoAr = [];
@@ -146,6 +159,9 @@ let mouseClick = function (event) {
 
 img.addEventListener('click', mouseClick);
 
+
+
+
 // render result
 let render = function () {
   for (let j = 0; j < list.length; j++) {
@@ -154,8 +170,14 @@ let render = function () {
     //banana had 3 votes, and was seen 5 times.
     resultUl.appendChild(newList);
   }
+
+  // save all data into a dataToString as string
+  let dataToString = JSON.stringify(list);
+  console.log(dataToString);
+  localStorage.setItem('saveAll', dataToString);
   viewResult.removeEventListener('click', render);
   finalChart();
+
 }
 
 let viewResult = document.getElementById('view');
@@ -172,7 +194,7 @@ let finalChart = function () {
 
   for (let l = 0; l < list.length; l++) {
     listName.push(list[l].name);
-    console.log(listName);
+    // console.log(listName);
     listView.push(list[l].view);
     listLike.push(list[l].like);
   }
@@ -210,3 +232,41 @@ let finalChart = function () {
     }
   });
 }
+
+function pageLoad() {
+  let dataFromLocal = localStorage.getItem('saveAll');
+  console.log(dataFromLocal);
+  if (dataFromLocal) {
+    console.log(`data pull from sotrage ${dataFromLocal}`);
+    let parsedData = JSON.parse(dataFromLocal);
+    console.log(parsedData[0].name);
+    list = parsedData;
+
+    // testing to create new Item
+    // let new = new Item (parsedData[i].name, parsedData[0].src, parsedData[0].like, parsedData[0].view)
+    // list.push(new);
+
+
+
+    // list[0].like = parsedData[0].like;
+
+  }
+  //   if (dataToString) {
+  // console.log('dataToString has something');
+  //   }
+}
+
+
+/*
+// Pack the things (turn data into a string)
+let dataLocal = JSON.stringify(dataToStorage);
+
+// save to local
+localStorage.setItem('dataName', dataLocal);
+
+// get it from local
+let dataFromLocal = localStorage.getItem('dataName');
+
+// unpack the things (turn it from string to useful data)
+let parsedData = JSON.parse(dataFromLocal);
+*/

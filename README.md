@@ -27,6 +27,9 @@ Lab11
 ![lab11](light11.png)
 Lab12
 ![lab11](light12.png)
+Lab13
+![lab13](light13.png)
+
 ### Reflections and Comments
 
 * Consider including the answers to your daily journal and submission questions here

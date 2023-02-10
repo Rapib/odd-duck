@@ -194,7 +194,6 @@ let finalChart = function () {
 
   for (let l = 0; l < list.length; l++) {
     listName.push(list[l].name);
-    // console.log(listName);
     listView.push(list[l].view);
     listLike.push(list[l].like);
   }

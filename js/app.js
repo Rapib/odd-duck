@@ -219,7 +219,6 @@ let finalChart = function () {
 
     options: {
       indexAxis: 'y',
-      // backgroundColor:['rgba(118, 208, 113, 0.54)','rgba(219, 178, 73, 0.54)','rgba(214, 73, 219, 0.54)'],
       barThickness: '10',
       borderRadius: '10',
       borderWidth: 2,
@@ -240,32 +239,5 @@ function pageLoad() {
     let parsedData = JSON.parse(dataFromLocal);
     console.log(parsedData[0].name);
     list = parsedData;
-
-    // testing to create new Item
-    // let new = new Item (parsedData[i].name, parsedData[0].src, parsedData[0].like, parsedData[0].view)
-    // list.push(new);
-
-
-
-    // list[0].like = parsedData[0].like;
-
   }
-  //   if (dataToString) {
-  // console.log('dataToString has something');
-  //   }
 }
-
-
-/*
-// Pack the things (turn data into a string)
-let dataLocal = JSON.stringify(dataToStorage);
-
-// save to local
-localStorage.setItem('dataName', dataLocal);
-
-// get it from local
-let dataFromLocal = localStorage.getItem('dataName');
-
-// unpack the things (turn it from string to useful data)
-let parsedData = JSON.parse(dataFromLocal);
-*/

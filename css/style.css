@@ -5,6 +5,7 @@
 body {
   background-color: beige;
 }
+
 header {
   display: flex;
   justify-content: flex-start;
@@ -23,9 +24,6 @@ h1 {
   display: grid;
   grid-template-columns: 350px 1fr;
   grid-template-rows: 350px 10px 1fr;
-  /* border-color: black;
-  border-style: dashed;
-  border-width: 1px; */
 }
 
 #result {
@@ -41,14 +39,9 @@ h1 {
 }
 
 #img {
-  /* grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2; */
   display: flex;
   justify-content: space-around;
-  /* align-content: center; */
-  gap: 10px; 
+  gap: 10px;
 
 }
 
@@ -60,8 +53,8 @@ h1 {
 }
 
 #img img:hover {
-border: 3px solid rgb(67, 137, 157);
-cursor: pointer;
+  border: 3px solid rgb(67, 137, 157);
+  cursor: pointer;
 }
 
 #view {
@@ -88,11 +81,11 @@ cursor: pointer;
   border-color: black;
   border-width: 2px;
   border-style: double;
-/* margin:10px; */
-padding: 10px;
+  padding: 10px;
 }
 
-ul, li {
+ul,
+li {
   list-style-type: circle;
   margin-left: 10px;
 }

@@ -16,21 +16,19 @@ The marketing team is not only interested in the total number of clicks, but als
 
 ### Author: Thomas
 
-### Links and Resources
 
-* [submission PR](http://xyz.com)
-* Any Links you used as reference
 
 ### Lighthouse Accessibility Report Score
 
 Lab11
 ![lab11](light11.png)
+
 Lab12
 ![lab11](light12.png)
+
 Lab13
 ![lab13](light13.png)
 
 ### Reflections and Comments
 
-* Consider including the answers to your daily journal and submission questions here
-* This is also a good place to reflect on the tools and resources used and learned
+Product image will be randomly generated.

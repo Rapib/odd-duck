@@ -1,6 +1,4 @@
-# LAB - 11
-
-## Odd Duck
+# Odd Duck Store
 
 ### Problem Domain
 
@@ -13,28 +11,3 @@ As the app’s purpose is to have the staff members choose which product, of the
 To keep the product selection process as untainted as possible, you have been instructed to not allow any results to be shown to users until there have been a total of 25 selections made.
 
 The marketing team is not only interested in the total number of clicks, but also the percentage of times that an item was clicked when it was shown. So, you’ll also need to keep track of how many times each image is displayed and do the calculations.
-
-### Author: Thomas
-
-
-
-### Lighthouse Accessibility Report Score
-
-Lab11
-
-![lab11](light11.png)
-
-Lab12
-
-![lab11](light12.png)
-
-Lab13
-
-![lab13](light13.png)
-
-Lab15
-![lab15](light15.png)
-
-### Reflections and Comments
-
-Product image will be randomly generated.
